@@ -1,6 +1,12 @@
+"use client";
+
+import Link from "next/link";
 import React from "react";
 
 const page = () => {
+  // const handleClick = () => {
+  //   alert("clicked");
+  // };
   const blogs = [
     {
       slug: "introduction-to-javascript",
@@ -82,9 +88,15 @@ const page = () => {
 
       <div className='grid grid-cols-3 gap-6'>
         {blogs.map((blog) => (
-          <div className='border py-6 px-4' key={blog.slug}>
+          <div
+            // onClick={handleClick}
+            className='border py-6 px-4 cursor-pointer hover:bg-gray-50 rounded-lg text-center'
+            key={blog.slug}>
             <h1 className='font-bold text-2xl'>{blog.title}</h1>
             <p>{blog.description}</p>
+            <button className='bg-red-500 px-6 py-2 my-6 text-white'>
+              <Link href={`/blog/${blog.slug}`}>Details</Link>
+            </button>
           </div>
         ))}
       </div>
